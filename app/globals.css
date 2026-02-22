@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'DM Sans', 'Nunito', system-ui, sans-serif;
+  color: #1a2e1a;
+  background: linear-gradient(165deg, #f6f8f4 0%, #eef2ea 40%, #f0f4ec 100%);
+  min-height: 100vh;
+}
+
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes topicSlideIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+.animate-fade-slide { animation: fadeSlideIn 0.5s ease-out both; }
+.animate-fade-in { animation: fadeIn 0.2s ease-out; }
+.animate-scale-in { animation: scaleIn 0.25s ease-out; }
+.animate-topic-slide { animation: topicSlideIn 0.2s ease-out; }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-thumb { background: #ddd; border-radius: 3px; }
