@@ -259,3 +259,24 @@ export async function upsertProgressLog(
     );
   if (error) throw error;
 }
+
+// Auto-sync: queries today's actual counts from DB and upserts into progress_log
+export async function syncTodayProgress(): Promise<void> {
+  const today = new Date().toISOString().slice(0, 10);
+  try {
+    const { count: appCount } = await supabase
+      .from("applications")
+      .select("*", { count: "exact", head: true })
+      .eq("applied_date", today);
+
+    const { count: questionsCount } = await supabase
+      .from("daily_practice")
+      .select("*", { count: "exact", head: true })
+      .eq("practice_date", today)
+      .eq("done", true);
+
+    await upsertProgressLog(today, appCount || 0, questionsCount || 0);
+  } catch (e) {
+    console.error("Failed to sync progress:", e);
+  }
+}

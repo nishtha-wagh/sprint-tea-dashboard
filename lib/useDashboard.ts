@@ -49,12 +49,22 @@ export function useDashboard() {
 
   useEffect(() => { fetchAll(); }, [fetchAll]);
 
+  // Auto-sync progress chart after any action
+  const syncProgress = useCallback(async () => {
+    try {
+      await db.syncTodayProgress();
+      const progress = await db.getProgressLog(14);
+      setProgressLog(progress);
+    } catch (e) { console.error("Progress sync error:", e); }
+  }, []);
+
   // ── Applications ──
   const addApp = async (app: Omit<Application, "id">) => {
     try {
       const newApp = await db.addApplication(app);
       setApplications((p) => [newApp, ...p]);
       await db.logActivity();
+      syncProgress();
     } catch (e: any) { setError(e.message); }
   };
 
@@ -62,6 +72,7 @@ export function useDashboard() {
     try {
       const updated = await db.updateApplication(id, updates);
       setApplications((p) => p.map((a) => (a.id === id ? updated : a)));
+      syncProgress();
     } catch (e: any) { setError(e.message); }
   };
 
@@ -69,6 +80,7 @@ export function useDashboard() {
     try {
       await db.deleteApplication(id);
       setApplications((p) => p.filter((a) => a.id !== id));
+      syncProgress();
     } catch (e: any) { setError(e.message); }
   };
 
@@ -78,6 +90,7 @@ export function useDashboard() {
       const item = await db.addPracticeItem(text);
       setDailyPractice((p) => [...p, item]);
       await db.logActivity();
+      syncProgress();
     } catch (e: any) { setError(e.message); }
   };
 
@@ -89,6 +102,7 @@ export function useDashboard() {
     try {
       await db.togglePracticeItem(id, newDone);
       if (newDone) await db.logActivity();
+      syncProgress();
     } catch (e: any) { setError(e.message); }
   };
 
@@ -96,6 +110,7 @@ export function useDashboard() {
     try {
       await db.deletePracticeItem(id);
       setDailyPractice((p) => p.filter((x) => x.id !== id));
+      syncProgress();
     } catch (e: any) { setError(e.message); }
   };
 
