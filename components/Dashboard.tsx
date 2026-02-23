@@ -234,10 +234,10 @@ function ApplicationsSection({ applications, onAdd, onEdit, onCycleStatus, onDel
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           <div style={{ width: 32, height: 32, borderRadius: 8, background: t.statCards[1].color, display: "flex", alignItems: "center", justifyContent: "center", color: t.statCards[1].ic }}><FolderIcon /></div>
-          <h2 style={{ fontFamily: "inherit", fontSize: 22, margin: 0, color: t.text }}>Applications</h2>
+          <h2 style={{ fontFamily: "nunito", fontSize: 22, margin: 0, color: t.text }}>Applications</h2>
           <span style={{ fontSize: 13, color: t.textMuted, fontWeight: 600 }}>({applications.length})</span>
         </div>
-        <button onClick={onAdd} style={{ display: "flex", alignItems: "center", gap: 6, background: t.btnPrimaryBg, color: t.btnPrimaryText, border: "none", borderRadius: 12, padding: "10px 20px", fontSize: 13, fontWeight: 600, cursor: "pointer", fontFamily: "inherit", transition: "all 0.2s" }}>
+        <button onClick={onAdd} style={{ display: "flex", alignItems: "center", gap: 6, background: t.btnPrimaryBg, color: t.btnPrimaryText, border: "none", borderRadius: 12, padding: "10px 20px", fontSize: 13, fontWeight: 600, cursor: "pointer", fontFamily: "nunito", transition: "all 0.2s" }}>
           <PlusIcon /> Add Application
         </button>
       </div>
@@ -299,21 +299,21 @@ function TopicsToMaster({ roles, onAddRole, onRemoveRole, onAddSubcategory, onRe
   const handleAddSubcat = async () => { if (!newSubcatName.trim() || !role) return; await onAddSubcategory(role.id, newSubcatName.trim()); setNewSubcatName(""); setAddingSubcat(false); };
   const handleAddRole = async () => { if (!newRoleName.trim()) return; await onAddRole(newRoleName.trim()); setNewRoleName(""); setAddingRole(false); };
 
-  const inputStyle = { padding: "7px 12px", borderRadius: 8, border: `1.5px solid ${t.inputBorder}`, fontSize: 13, fontFamily: "inherit", outline: "none", background: t.input, color: t.text } as React.CSSProperties;
+  const inputStyle = { padding: "7px 12px", borderRadius: 8, border: `1.5px solid ${t.inputBorder}`, fontSize: 13, fontFamily: "nunito", outline: "none", background: t.input, color: t.text } as React.CSSProperties;
 
   return (
     <div style={{ background: t.topicsBg, borderRadius: 22, padding: "26px 28px 22px", border: `1px solid ${t.topicsBorder}`, boxShadow: "0 2px 12px rgba(0,0,0,0.03)" }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 18 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           <div style={{ width: 32, height: 32, borderRadius: 8, background: t.statCards[0].color, display: "flex", alignItems: "center", justifyContent: "center", color: "#2d8a56" }}><BookIcon /></div>
-          <h2 style={{ fontFamily: "inherit", fontSize: 21, margin: 0, color: t.text }}>Topics to Master</h2>
+          <h2 style={{ fontFamily: "nunito", fontSize: 21, margin: 0, color: t.text }}>Topics to Master</h2>
         </div>
         <span style={{ fontSize: 15, fontWeight: 700, color: rc.total === 0 ? t.textMuted : rc.done === rc.total ? "#2d8a56" : "#3cb371" }}>{rc.done}/{rc.total}</span>
       </div>
       <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 20, paddingBottom: 16, borderBottom: `1.5px dashed ${t.dashBorder}` }}>
         {roles.map(r => { const a = r.id === activeRole; return (
           <div key={r.id} style={{ display: "inline-flex", alignItems: "center" }}>
-            <button onClick={() => setActiveRole(r.id)} style={{ padding: "7px 18px", borderRadius: 20, border: a ? "none" : `1.5px solid ${t.tabBorder}`, background: a ? t.tabActiveBg : t.tabBg, color: a ? t.tabActiveText : t.tabText, fontSize: 13, fontWeight: 600, cursor: "pointer", fontFamily: "inherit", transition: "all 0.2s" }}>{r.name}</button>
+            <button onClick={() => setActiveRole(r.id)} style={{ padding: "7px 18px", borderRadius: 20, border: a ? "none" : `1.5px solid ${t.tabBorder}`, background: a ? t.tabActiveBg : t.tabBg, color: a ? t.tabActiveText : t.tabText, fontSize: 13, fontWeight: 600, cursor: "pointer", fontFamily: "nunito", transition: "all 0.2s" }}>{r.name}</button>
             {roles.length > 1 && a && <button onClick={() => onRemoveRole(r.id)} style={ghostBtn({ color: "#fff8", marginLeft: -8 })}><XIcon size={10} /></button>}
           </div>
         ); })}
@@ -324,7 +324,7 @@ function TopicsToMaster({ roles, onAddRole, onRemoveRole, onAddSubcategory, onRe
             <button onClick={() => { setAddingRole(false); setNewRoleName(""); }} style={ghostBtn({ color: t.textMuted })}><XIcon size={12} /></button>
           </div>
         ) : (
-          <button onClick={() => setAddingRole(true)} style={{ padding: "7px 16px", borderRadius: 20, border: `1.5px dashed ${t.addRoleBorder}`, background: "transparent", color: t.addRoleText, fontSize: 13, fontWeight: 500, cursor: "pointer", fontFamily: "inherit", display: "flex", alignItems: "center", gap: 5 }}><PlusIcon size={14} /> Add Role</button>
+          <button onClick={() => setAddingRole(true)} style={{ padding: "7px 16px", borderRadius: 20, border: `1.5px dashed ${t.addRoleBorder}`, background: "transparent", color: t.addRoleText, fontSize: 13, fontWeight: 500, cursor: "pointer", fontFamily: "nunito", display: "flex", alignItems: "center", gap: 5 }}><PlusIcon size={14} /> Add Role</button>
         )}
       </div>
       {role && <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
@@ -355,7 +355,7 @@ function TopicsToMaster({ roles, onAddRole, onRemoveRole, onAddSubcategory, onRe
                   <button onClick={() => { setAddingTopicTo(null); setNewTopicText(""); }} style={ghostBtn({ color: t.textMuted })}><XIcon size={12} /></button>
                 </div>
               ) : (
-                <button onClick={() => { setAddingTopicTo(sc.id); setNewTopicText(""); }} style={{ background: "none", border: "none", color: t.addTopicColor, fontSize: 12.5, fontWeight: 500, cursor: "pointer", fontFamily: "inherit", padding: "6px 4px", display: "flex", alignItems: "center", gap: 4 }}><PlusIcon size={12} /> Add topic</button>
+                <button onClick={() => { setAddingTopicTo(sc.id); setNewTopicText(""); }} style={{ background: "none", border: "none", color: t.addTopicColor, fontSize: 12.5, fontWeight: 500, cursor: "pointer", fontFamily: "nunito", padding: "6px 4px", display: "flex", alignItems: "center", gap: 4 }}><PlusIcon size={12} /> Add topic</button>
               )}
             </div>}
           </div>
@@ -367,7 +367,7 @@ function TopicsToMaster({ roles, onAddRole, onRemoveRole, onAddSubcategory, onRe
             <button onClick={() => { setAddingSubcat(false); setNewSubcatName(""); }} style={ghostBtn({ color: t.textMuted })}><XIcon size={14} /></button>
           </div>
         ) : (
-          <button onClick={() => setAddingSubcat(true)} style={{ background: "none", border: "none", color: t.addSubcatColor, fontSize: 13, fontWeight: 500, cursor: "pointer", fontFamily: "inherit", padding: "10px 4px", display: "flex", alignItems: "center", gap: 5 }}><PlusIcon size={14} /> Add subcategory</button>
+          <button onClick={() => setAddingSubcat(true)} style={{ background: "none", border: "none", color: t.addSubcatColor, fontSize: 13, fontWeight: 500, cursor: "pointer", fontFamily: "nunito", padding: "10px 4px", display: "flex", alignItems: "center", gap: 5 }}><PlusIcon size={14} /> Add subcategory</button>
         )}
       </div>}
     </div>
@@ -417,7 +417,7 @@ export default function Dashboard(props: Props) {
   const cycleStatus = async (app: Application) => { const idx = STATUS_OPTIONS.indexOf(app.status); await props.updateApp(app.id, { status: STATUS_OPTIONS[(idx + 1) % STATUS_OPTIONS.length] }); };
   const handleAddPractice = async () => { if (!newPractice.trim()) return; await props.addPractice(newPractice.trim()); setNewPractice(""); setShowPracticeInput(false); };
 
-  const inputStyle = { width: "100%", padding: "10px 14px", borderRadius: 10, border: `1.5px solid ${t.inputBorder}`, fontSize: 14, fontFamily: "inherit", outline: "none", boxSizing: "border-box", background: t.input, color: t.text } as React.CSSProperties;
+  const inputStyle = { width: "100%", padding: "10px 14px", borderRadius: 10, border: `1.5px solid ${t.inputBorder}`, fontSize: 14, fontFamily: "nunito", outline: "none", boxSizing: "border-box", background: t.input, color: t.text } as React.CSSProperties;
   const statIcons = [<SendIcon />, <ChatIcon />, <CheckCircle />, <BookIcon />, <FlameIcon />];
   const statLabels = ["TOTAL SAVED", "TOTAL APPLIED", "QUESTIONS PRACTICED", "TOPICS STUDIED", "DAILY STREAK"];
   const statValues = [stats.saved, stats.applied, stats.questions, stats.topicsStudied, stats.streak];
@@ -433,7 +433,7 @@ export default function Dashboard(props: Props) {
               <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: t.pillBg, borderRadius: 20, padding: "6px 16px", fontSize: 13, fontWeight: 600, color: t.pillText, boxShadow: t.cardShadow, border: `1px solid ${t.cardBorder}` }}><CupIcon /> Sprint Tea Party Dashboard</div>
               <ThemeToggle />
             </div>
-            <h1 style={{ fontFamily: "inherit", fontSize: "clamp(32px, 5vw, 48px)", fontWeight: 800, lineHeight: 1.1, margin: "0 0 8px", color: t.text }}>Keep the <span style={{ color: "#3cb371", textDecoration: "underline", textDecorationStyle: "wavy", textDecorationColor: "#3cb37188", textUnderlineOffset: 6 } as any}>momentum</span> going!</h1>
+            <h1 style={{ fontFamily: "nunito", fontSize: "clamp(32px, 5vw, 48px)", fontWeight: 800, lineHeight: 1.1, margin: "0 0 8px", color: t.text }}>Keep the <span style={{ color: "#3cb371", textDecoration: "underline", textDecorationStyle: "wavy", textDecorationColor: "#3cb37188", textUnderlineOffset: 6 } as any}>momentum</span> going!</h1>
             <p style={{ fontSize: 15, color: t.textSoft, margin: 0, maxWidth: 460 }}>Track your progress, manage applications, and master new skills one sip at a time.</p>
           </div>
           {/* Stats */}
@@ -450,7 +450,7 @@ export default function Dashboard(props: Props) {
           <div style={{ display: "grid", gridTemplateColumns: "1fr 340px", gap: 20, marginBottom: 28 }}>
             <div style={{ background: t.card, borderRadius: 20, padding: "24px 24px 16px", boxShadow: t.cardShadow, border: `1px solid ${t.cardBorder}` }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
-                <h2 style={{ fontFamily: "inherit", fontSize: 20, margin: 0, color: t.text }}>14-Day Progress</h2>
+                <h2 style={{ fontFamily: "nunito", fontSize: 20, margin: 0, color: t.text }}>14-Day Progress</h2>
                 <div style={{ display: "flex", gap: 16, fontSize: 12, color: t.textSoft }}>
                   <span style={{ display: "flex", alignItems: "center", gap: 5 }}><span style={{ width: 8, height: 8, borderRadius: "50%", background: "#3cb371" }} /> Applications</span>
                   <span style={{ display: "flex", alignItems: "center", gap: 5 }}><span style={{ width: 8, height: 8, borderRadius: "50%", background: "#f0a0b0" }} /> Questions</span>
@@ -467,10 +467,10 @@ export default function Dashboard(props: Props) {
             </div>
             <div style={{ background: t.card, borderRadius: 20, padding: 20, boxShadow: t.cardShadow, border: `1px solid ${t.cardBorder}`, display: "flex", flexDirection: "column" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 14 }}>
-                <h2 style={{ fontFamily: "inherit", fontSize: 18, margin: 0, color: t.text }}>Today's Tasks</h2>
+                <h2 style={{ fontFamily: "nunito", fontSize: 18, margin: 0, color: t.text }}>Today's Tasks</h2>
                 <button onClick={() => setShowPracticeInput(true)} style={{ width: 32, height: 32, borderRadius: "50%", border: "2px solid #3cb371", background: "transparent", color: "#3cb371", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}><PlusIcon /></button>
               </div>
-              {showPracticeInput && <div style={{ display: "flex", gap: 8, marginBottom: 12 }}><input autoFocus value={newPractice} onChange={e => setNewPractice(e.target.value)} onKeyDown={e => e.key === "Enter" && handleAddPractice()} placeholder="Add a practice task..." style={{ flex: 1, padding: "8px 12px", borderRadius: 10, border: `1.5px solid ${t.inputBorder}`, fontSize: 13, outline: "none", fontFamily: "inherit", background: t.input, color: t.text }} /><button onClick={handleAddPractice} style={{ padding: "8px 14px", borderRadius: 10, border: "none", background: "#3cb371", color: "white", fontSize: 13, fontWeight: 600, cursor: "pointer" }}>Add</button></div>}
+              {showPracticeInput && <div style={{ display: "flex", gap: 8, marginBottom: 12 }}><input autoFocus value={newPractice} onChange={e => setNewPractice(e.target.value)} onKeyDown={e => e.key === "Enter" && handleAddPractice()} placeholder="Add a practice task..." style={{ flex: 1, padding: "8px 12px", borderRadius: 10, border: `1.5px solid ${t.inputBorder}`, fontSize: 13, outline: "none", fontFamily: "nunito", background: t.input, color: t.text }} /><button onClick={handleAddPractice} style={{ padding: "8px 14px", borderRadius: 10, border: "none", background: "#3cb371", color: "white", fontSize: 13, fontWeight: 600, cursor: "pointer" }}>Add</button></div>}
               <div style={{ display: "flex", flexDirection: "column", gap: 4, flex: 1 }}>
                 {dailyPractice.map(item => (
                   <div key={item.id} style={{ display: "flex", alignItems: "center", gap: 10, padding: "8px 6px", borderRadius: 10 }}>
@@ -490,15 +490,15 @@ export default function Dashboard(props: Props) {
         {/* App Modal */}
         {showAppModal && <div style={{ position: "fixed", inset: 0, background: t.modalOverlay, backdropFilter: "blur(4px)", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 100 }} className="animate-fade-in" onClick={() => setShowAppModal(false)}>
           <div onClick={e => e.stopPropagation()} style={{ background: t.modalBg, borderRadius: 20, padding: 28, width: 380, boxShadow: "0 20px 60px rgba(0,0,0,0.3)", border: `1px solid ${t.cardBorder}` }} className="animate-scale-in">
-            <h3 style={{ fontFamily: "inherit", fontSize: 20, margin: "0 0 20px", color: t.text }}>{editingApp ? "Edit Application" : "New Application"}</h3>
+            <h3 style={{ fontFamily: "nunito", fontSize: 20, margin: "0 0 20px", color: t.text }}>{editingApp ? "Edit Application" : "New Application"}</h3>
             <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
               <div><label style={{ fontSize: 12, fontWeight: 600, color: t.textMuted, marginBottom: 4, display: "block" }}>ROLE</label><input autoFocus value={appForm.role} onChange={e => setAppForm(p => ({ ...p, role: e.target.value }))} placeholder="e.g. Data Scientist" style={inputStyle} /></div>
               <div><label style={{ fontSize: 12, fontWeight: 600, color: t.textMuted, marginBottom: 4, display: "block" }}>COMPANY</label><input value={appForm.company} onChange={e => setAppForm(p => ({ ...p, company: e.target.value }))} placeholder="e.g. Anthropic" style={inputStyle} /></div>
               <div><label style={{ fontSize: 12, fontWeight: 600, color: t.textMuted, marginBottom: 4, display: "block" }}>STATUS</label><div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>{STATUS_OPTIONS.map(s => <button key={s} onClick={() => setAppForm(p => ({ ...p, status: s }))} style={{ padding: "6px 14px", borderRadius: 8, border: "none", background: appForm.status === s ? sc[s].bg : (dark ? "#252e25" : "#f5f5f5"), color: appForm.status === s ? sc[s].text : t.textMuted, fontSize: 11, fontWeight: 700, cursor: "pointer", outline: appForm.status === s ? `2px solid ${sc[s].text}33` : "none" }}>{s}</button>)}</div></div>
             </div>
             <div style={{ display: "flex", gap: 10, marginTop: 24, justifyContent: "flex-end" }}>
-              <button onClick={() => setShowAppModal(false)} style={{ padding: "10px 20px", borderRadius: 10, border: `1.5px solid ${t.inputBorder}`, background: t.card, fontSize: 13, fontWeight: 600, cursor: "pointer", fontFamily: "inherit", color: t.text }}>Cancel</button>
-              <button onClick={saveApp} style={{ padding: "10px 24px", borderRadius: 10, border: "none", background: t.btnPrimaryBg, color: t.btnPrimaryText, fontSize: 13, fontWeight: 600, cursor: "pointer", fontFamily: "inherit" }}>{editingApp ? "Save Changes" : "Add Application"}</button>
+              <button onClick={() => setShowAppModal(false)} style={{ padding: "10px 20px", borderRadius: 10, border: `1.5px solid ${t.inputBorder}`, background: t.card, fontSize: 13, fontWeight: 600, cursor: "pointer", fontFamily: "nunito", color: t.text }}>Cancel</button>
+              <button onClick={saveApp} style={{ padding: "10px 24px", borderRadius: 10, border: "none", background: t.btnPrimaryBg, color: t.btnPrimaryText, fontSize: 13, fontWeight: 600, cursor: "pointer", fontFamily: "nunito" }}>{editingApp ? "Save Changes" : "Add Application"}</button>
             </div>
           </div>
         </div>}
