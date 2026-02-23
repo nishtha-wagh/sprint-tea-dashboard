@@ -234,7 +234,7 @@ function ApplicationsSection({ applications, onAdd, onEdit, onCycleStatus, onDel
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           <div style={{ width: 32, height: 32, borderRadius: 8, background: t.statCards[1].color, display: "flex", alignItems: "center", justifyContent: "center", color: t.statCards[1].ic }}><FolderIcon /></div>
-          <h2 style={{ fontFamily: "var(--font-dm-serif)", fontSize: 22, margin: 0, color: t.text }}>Applications</h2>
+          <h2 style={{ fontFamily: "inherit", fontSize: 22, margin: 0, color: t.text }}>Applications</h2>
           <span style={{ fontSize: 13, color: t.textMuted, fontWeight: 600 }}>({applications.length})</span>
         </div>
         <button onClick={onAdd} style={{ display: "flex", alignItems: "center", gap: 6, background: t.btnPrimaryBg, color: t.btnPrimaryText, border: "none", borderRadius: 12, padding: "10px 20px", fontSize: 13, fontWeight: 600, cursor: "pointer", fontFamily: "inherit", transition: "all 0.2s" }}>
@@ -306,7 +306,7 @@ function TopicsToMaster({ roles, onAddRole, onRemoveRole, onAddSubcategory, onRe
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 18 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           <div style={{ width: 32, height: 32, borderRadius: 8, background: t.statCards[0].color, display: "flex", alignItems: "center", justifyContent: "center", color: "#2d8a56" }}><BookIcon /></div>
-          <h2 style={{ fontFamily: "var(--font-dm-serif)", fontSize: 21, margin: 0, color: t.text }}>Topics to Master</h2>
+          <h2 style={{ fontFamily: "inherit", fontSize: 21, margin: 0, color: t.text }}>Topics to Master</h2>
         </div>
         <span style={{ fontSize: 15, fontWeight: 700, color: rc.total === 0 ? t.textMuted : rc.done === rc.total ? "#2d8a56" : "#3cb371" }}>{rc.done}/{rc.total}</span>
       </div>
@@ -433,7 +433,7 @@ export default function Dashboard(props: Props) {
               <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: t.pillBg, borderRadius: 20, padding: "6px 16px", fontSize: 13, fontWeight: 600, color: t.pillText, boxShadow: t.cardShadow, border: `1px solid ${t.cardBorder}` }}><CupIcon /> Sprint Tea Party Dashboard</div>
               <ThemeToggle />
             </div>
-            <h1 style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(32px, 5vw, 48px)", fontWeight: 800, lineHeight: 1.1, margin: "0 0 8px", color: t.text }}>Keep the <span style={{ color: "#3cb371", textDecoration: "underline", textDecorationStyle: "wavy", textDecorationColor: "#3cb37188", textUnderlineOffset: 6 } as any}>momentum</span> going!</h1>
+            <h1 style={{ fontFamily: "inherit", fontSize: "clamp(32px, 5vw, 48px)", fontWeight: 800, lineHeight: 1.1, margin: "0 0 8px", color: t.text }}>Keep the <span style={{ color: "#3cb371", textDecoration: "underline", textDecorationStyle: "wavy", textDecorationColor: "#3cb37188", textUnderlineOffset: 6 } as any}>momentum</span> going!</h1>
             <p style={{ fontSize: 15, color: t.textSoft, margin: 0, maxWidth: 460 }}>Track your progress, manage applications, and master new skills one sip at a time.</p>
           </div>
           {/* Stats */}
@@ -450,7 +450,7 @@ export default function Dashboard(props: Props) {
           <div style={{ display: "grid", gridTemplateColumns: "1fr 340px", gap: 20, marginBottom: 28 }}>
             <div style={{ background: t.card, borderRadius: 20, padding: "24px 24px 16px", boxShadow: t.cardShadow, border: `1px solid ${t.cardBorder}` }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
-                <h2 style={{ fontFamily: "var(--font-dm-serif)", fontSize: 20, margin: 0, color: t.text }}>14-Day Progress</h2>
+                <h2 style={{ fontFamily: "inherit", fontSize: 20, margin: 0, color: t.text }}>14-Day Progress</h2>
                 <div style={{ display: "flex", gap: 16, fontSize: 12, color: t.textSoft }}>
                   <span style={{ display: "flex", alignItems: "center", gap: 5 }}><span style={{ width: 8, height: 8, borderRadius: "50%", background: "#3cb371" }} /> Applications</span>
                   <span style={{ display: "flex", alignItems: "center", gap: 5 }}><span style={{ width: 8, height: 8, borderRadius: "50%", background: "#f0a0b0" }} /> Questions</span>
@@ -467,7 +467,7 @@ export default function Dashboard(props: Props) {
             </div>
             <div style={{ background: t.card, borderRadius: 20, padding: 20, boxShadow: t.cardShadow, border: `1px solid ${t.cardBorder}`, display: "flex", flexDirection: "column" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 14 }}>
-                <h2 style={{ fontFamily: "var(--font-dm-serif)", fontSize: 18, margin: 0, color: t.text }}>Today's Tasks</h2>
+                <h2 style={{ fontFamily: "inherit", fontSize: 18, margin: 0, color: t.text }}>Today's Tasks</h2>
                 <button onClick={() => setShowPracticeInput(true)} style={{ width: 32, height: 32, borderRadius: "50%", border: "2px solid #3cb371", background: "transparent", color: "#3cb371", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}><PlusIcon /></button>
               </div>
               {showPracticeInput && <div style={{ display: "flex", gap: 8, marginBottom: 12 }}><input autoFocus value={newPractice} onChange={e => setNewPractice(e.target.value)} onKeyDown={e => e.key === "Enter" && handleAddPractice()} placeholder="Add a practice task..." style={{ flex: 1, padding: "8px 12px", borderRadius: 10, border: `1.5px solid ${t.inputBorder}`, fontSize: 13, outline: "none", fontFamily: "inherit", background: t.input, color: t.text }} /><button onClick={handleAddPractice} style={{ padding: "8px 14px", borderRadius: 10, border: "none", background: "#3cb371", color: "white", fontSize: 13, fontWeight: 600, cursor: "pointer" }}>Add</button></div>}
@@ -490,7 +490,7 @@ export default function Dashboard(props: Props) {
         {/* App Modal */}
         {showAppModal && <div style={{ position: "fixed", inset: 0, background: t.modalOverlay, backdropFilter: "blur(4px)", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 100 }} className="animate-fade-in" onClick={() => setShowAppModal(false)}>
           <div onClick={e => e.stopPropagation()} style={{ background: t.modalBg, borderRadius: 20, padding: 28, width: 380, boxShadow: "0 20px 60px rgba(0,0,0,0.3)", border: `1px solid ${t.cardBorder}` }} className="animate-scale-in">
-            <h3 style={{ fontFamily: "var(--font-dm-serif)", fontSize: 20, margin: "0 0 20px", color: t.text }}>{editingApp ? "Edit Application" : "New Application"}</h3>
+            <h3 style={{ fontFamily: "inherit", fontSize: 20, margin: "0 0 20px", color: t.text }}>{editingApp ? "Edit Application" : "New Application"}</h3>
             <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
               <div><label style={{ fontSize: 12, fontWeight: 600, color: t.textMuted, marginBottom: 4, display: "block" }}>ROLE</label><input autoFocus value={appForm.role} onChange={e => setAppForm(p => ({ ...p, role: e.target.value }))} placeholder="e.g. Data Scientist" style={inputStyle} /></div>
               <div><label style={{ fontSize: 12, fontWeight: 600, color: t.textMuted, marginBottom: 4, display: "block" }}>COMPANY</label><input value={appForm.company} onChange={e => setAppForm(p => ({ ...p, company: e.target.value }))} placeholder="e.g. Anthropic" style={inputStyle} /></div>
